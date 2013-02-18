@@ -2,11 +2,32 @@
 
 ## When to use?
 
-TDB.
+In case you need prevent double (multiple) clicks on view or modals, typically once that perform save or update the model.
 
 ## How to use?
 
-TDB.
+Apply the `Backbone.ClickDebounce` decorator to your view.
+
+```js
+    var View = Backbone.ClickDebounce(Backbone.View.extend({
+        initialize: function () {
+
+        },
+
+        events: {
+            'click .click-me': 'onClick'
+        },
+
+        onClick: function () {
+        },
+
+        render: function () {
+            return this;
+        }
+    }));
+```
+
+De-bounced view will prevent clicking during the *wait* period. By default, wait period is 1 sec. 
 
 ## Versions / Changes
 

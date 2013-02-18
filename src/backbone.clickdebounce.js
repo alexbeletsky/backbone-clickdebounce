@@ -1,4 +1,6 @@
 Backbone.ClickDebounce = (function(Backbone, _) {
+    var defaultWaitPeriod = 1000;
+
     return function(ctor) {
         var view = ctor.prototype;
         var events = view.events;
@@ -9,7 +11,7 @@ Backbone.ClickDebounce = (function(Backbone, _) {
 
         var debouncedClicks = _.reduce(events, function(memo, handler, event) {
             if (event.indexOf('click') === 0) {
-                memo[handler] = _.debounce(view[handler], 1000, true);
+                memo[handler] = _.debounce(view[handler], defaultWaitPeriod, true);
             }
             return memo;
         }, {});
