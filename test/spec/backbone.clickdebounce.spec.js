@@ -58,7 +58,6 @@ describe('Backbone.ClickDebounce spec', function () {
         var view;
 
         beforeEach(function () {
-            debugger;
             var View = Backbone.ClickDebounce(Backbone.View.extend({
                 initialize: function () {
                     this.clickCounter = 0;
@@ -84,6 +83,49 @@ describe('Backbone.ClickDebounce spec', function () {
         it ('should view be created', function () {
             expect(view).to.be.ok;
         });
+
+        describe('when user clicks to button', function () {
+            beforeEach(function () {
+                view.$el.find('.click-me').click();
+            });
+
+            it('should increase counter', function () {
+                expect(view.clickCounter).to.equal(1);
+            });
+
+            describe('when clicking multiple times', function () {
+                beforeEach(function () {
+                    view.$el.find('.click-me').click();
+                    view.$el.find('.click-me').click();
+                    view.$el.find('.click-me').click();
+                });
+
+                it('should increase counter', function () {
+                    expect(view.clickCounter).to.equal(1);
+                });
+
+                describe('after timeout', function () {
+                    beforeEach(function (done) {
+                        setTimeout(function() {
+                            done();
+                        }, 1000);
+                    });
+
+                    beforeEach(function () {
+                        view.$el.find('.click-me').click();
+                        view.$el.find('.click-me').click();
+                        view.$el.find('.click-me').click();
+                    });
+
+                    it('should increase counter', function () {
+                        expect(view.clickCounter).to.equal(2);
+                    });
+
+                });
+            });
+
+        });
+
     });
     
 });
