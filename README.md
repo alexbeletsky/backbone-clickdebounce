@@ -2,7 +2,7 @@
 
 ## When to use?
 
-In case you need prevent double (multiple) clicks on view or modals, typically once that perform save or update the model.
+In case you need prevent double (multiple) clicks on view or modals, typically once that perform save or update operations. It applies `_.debounce()` function for all clicks in view. More information about click debouncing is [here](http://eng.wealthfront.com/2012/12/using-underscorejss-debounce-to-filter.html).
 
 ## How to use?
 
