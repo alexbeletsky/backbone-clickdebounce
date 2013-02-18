@@ -7,16 +7,13 @@ Backbone.ClickDebounce = (function(Backbone, _) {
             return ctor;
         }
 
-        var clickHandlers = _.reduce(events, function(memo, handler, event) {
+        var debouncedClicks = _.reduce(events, function(memo, handler, event) {
             if (event.indexOf('click') === 0) {
-                memo[handler] = view[handler];
+                memo[handler] = _.debounce(view[handler], 1000, true);
             }
             return memo;
         }, {});
-        _.each(clickHandlers, function (handler, name, context) {
-            context[name] = _.debounce(handler, 1000, true);
-        }, clickHandlers);
 
-        return ctor.extend(clickHandlers);
+        return ctor.extend(debouncedClicks);
     };
 })(Backbone, _);
