@@ -53,5 +53,37 @@ describe('Backbone.ClickDebounce spec', function () {
 
         });
     });
+
+    describe('when using debounced view', function () {
+        var view;
+
+        beforeEach(function () {
+            debugger;
+            var View = Backbone.ClickDebounce(Backbone.View.extend({
+                initialize: function () {
+                    this.clickCounter = 0;
+                },
+
+                'events': {
+                    'click .click-me': 'onClick'
+                },
+
+                render: function () {
+                    this.$el.html('<a href="#" class="click-me">Click me</a>');
+                },
+
+                onClick: function () {
+                    this.clickCounter++;
+                }
+            }));
+
+            view = new View();
+            view.render();
+        });
+
+        it ('should view be created', function () {
+            expect(view).to.be.ok;
+        });
+    });
     
 });

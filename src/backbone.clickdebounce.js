@@ -1,11 +1,5 @@
 Backbone.ClickDebounce = (function(Backbone, _) {
-    var ClickDebounce = function () {
-
+    return function(constructor) {
+        return constructor;
     };
-
-    _.extend(ClickDebounce.prototype, {
-
-    });
-
-    return ClickDebounce;
 })(Backbone, _);
