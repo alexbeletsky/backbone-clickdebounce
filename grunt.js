@@ -2,7 +2,8 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-rigger');
-
+  grunt.loadNpmTasks('grunt-mocha');
+  
   // Project configuration.
   grunt.initConfig({
     meta: {
@@ -17,6 +18,10 @@ module.exports = function(grunt) {
 
     lint: {
       files: ['src/<source:mata.source>']
+    },
+
+    mocha: {
+      all: ['test/index.html']
     },
 
     rig: {
@@ -64,10 +69,12 @@ module.exports = function(grunt) {
         slice: true
       }
     },
+
     uglify: {}
+
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint rig min');
+  grunt.registerTask('default', 'lint mocha rig min');
 
 };
