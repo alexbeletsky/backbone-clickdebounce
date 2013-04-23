@@ -1,5 +1,5 @@
 {
-  "name": "Backbone.ClickDebounce",
+  "name": "backbone-clickdebounce",
   "description": "Debounce multiple clicks for Backbone.Views",
   "version": "0.0.1",
   "homepage": "https://github.com/alexander.beletsky/backbone.clickdebounce",
