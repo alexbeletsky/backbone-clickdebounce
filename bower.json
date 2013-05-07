@@ -1,0 +1,13 @@
+{
+  "name": "backbone.clickdebounce",
+  "version": "0.0.1",
+  "main": "lib/backbone.clickdebounce.js",
+  "ignore": [
+    "test",
+    "node_modules"
+  ],
+  "dependencies"  : {
+    "underscore": ">=1.4.2",
+    "backbone":   ">=0.9.9"
+  }
+}
