@@ -4,6 +4,20 @@
 
 In case you need prevent double (multiple) clicks on view or modals, typically once that perform save or update operations. It applies `_.debounce()` function for all clicks in view. More information about click debouncing is [here](http://eng.wealthfront.com/2012/12/using-underscorejss-debounce-to-filter.html).
 
+## Installation
+
+Install bower component,
+
+```
+    bower install backbone.clickdebounce
+```
+
+Add reference,
+
+```html
+    <script type="text/javascript" src="components/backbone.clickdebounce/lib/backbone.clickdebounce.js"></script>
+```
+
 ## How to use?
 
 Apply the `Backbone.ClickDebounce` decorator to your view.
@@ -27,11 +41,11 @@ Apply the `Backbone.ClickDebounce` decorator to your view.
     }));
 ```
 
-De-bounced view will prevent clicking during the *wait* period. By default, wait period is 1 sec. 
+De-bounced view will prevent clicking during the *wait* period. By default, wait period is 1 sec.
 
 ## Versions / Changes
 
-### v.0.0.1, 17 Feb 2013 
+### v.0.0.1, 17 Feb 2013
 
 * Initial version implemented
 
